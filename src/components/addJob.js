@@ -1,20 +1,35 @@
 document.getElementById('jobForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+    event.preventDefault();  
 
-   
+    
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
     const salary = document.getElementById('salary').value;
     const employmentType = document.getElementById('employmentType').value;
 
     
-    const output = `
-        <h3>Göstərilən Məlumatlar:</h3>
-        <p><strong>Başlıq:</strong> ${title}</p>
-        <p><strong>Təsvir:</strong> ${description}</p>
-        <p><strong>Maaş:</strong> ${salary}</p>
-        <p><strong>İş Növü:</strong> ${employmentType}</p>
-    `;
-    
-    document.getElementById('output').innerHTML = output;
+    const data = {
+        title: title,
+        description: description,
+        salary: salary,
+        employmentType: employmentType
+    };
+
+    fetch('https://quilted-tangy-part.glitch.me/vacancies', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'  
+        },
+        body: JSON.stringify(data)  
+    })
+    .then(response => response.json()) 
+    .then(responseData => {
+        
+        console.log('Job submitted:', responseData);
+        
+    })
+    .catch(error => {
+        console.error('Xəta baş verdi:', error);  
+        alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
+    });
 });

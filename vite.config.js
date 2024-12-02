@@ -4,7 +4,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: "/index.html",
+        main: "index.html",
         about: "/src/pages/about.html",
         addJob: "/src/pages/addJob.html",
         companies: "/src/pages/companies.html",

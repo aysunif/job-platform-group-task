@@ -1,4 +1,3 @@
-
 const apiUrl = "https://quilted-tangy-part.glitch.me/users";
 
 const userCardsContainer = document.getElementById("userCards");

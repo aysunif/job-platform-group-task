@@ -85,7 +85,6 @@ btnRegSearch.addEventListener("click", () => {
               });
             } else {
               let username = usernameSearch.value;
-         
               let password = passwordSearch.value
               console.log("company-alindi");
               localStorage.setItem("company-username", username);
@@ -167,15 +166,21 @@ takeReg.addEventListener("click", () => {
     });
   } else {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    function validateEmail(email) {
-      if (emailRegex.test(email)) {
+    function validateEmail(mail) {
+      if (emailRegex.test(mail)) {
         const imageUrlRegex = /^https?:\/\/.*\.(?:jpg|jpeg|png|gif|bmp|webp|svg)$/;
         function validateImgUrl(img) {
-          if (imageUrlRegex.test(img)) {
+          if (imageUrlRegex.test(img)) {  
             const passwordRegexs = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
             function validatePasswordUsers(password) {
               if (passwordRegexs.test(password)) {
-                console.log("okey");
+                // console.log("okey");
+                // local
+                let usersUsername = usernameTake.value;
+                let usersPassword = passwordTake.value
+                console.log("users-alindi");
+                localStorage.setItem("users-username", usersUsername);
+                localStorage.setItem("users-password", usersPassword);
 
               } else {
                 Swal.fire({
@@ -198,6 +203,7 @@ takeReg.addEventListener("click", () => {
               }
 
             }
+            validatePasswordUsers(passwordTake.value)
 
           } else {
             Swal.fire({
@@ -221,6 +227,7 @@ takeReg.addEventListener("click", () => {
           }
 
         }
+        validateImgUrl(imgTake.value)
 
       } else {
         console.log("mail duz deil");
@@ -243,8 +250,9 @@ takeReg.addEventListener("click", () => {
           }
         });
       }
-
+      
     }
+    validateEmail(emailTake.value)
 
 
 

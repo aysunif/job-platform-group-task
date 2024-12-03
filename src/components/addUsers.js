@@ -22,8 +22,8 @@ function renderUserCards(users) {
         const userCard = `
             <div class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
                 <div class="p-4 text-center">
-                    <div class="w-24 h-24 mx-auto mb-4">
-                        <img class="object-cover rounded-full border-2 border-blue-500" src="${user.profileImage}" alt="${user.name}'s Avatar">
+                    <div class="w-23 h-23 mx-auto mb-4">
+                        <img class="object-cover border-2 " src="${user.profileImage}" alt="${user.name}'s Avatar">
                     </div>
                     <h3 class="text-xl font-bold text-gray-800">${user.name}</h3>
                     <p class="text-gray-600">${user.bio}</p>

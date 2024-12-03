@@ -1,3 +1,5 @@
+// const { create } = require("core-js/core/object");
+
 const usernameSearch = document.querySelector("#username-search")
 console.log(usernameSearch);
 const locationCompany = document.querySelector("#location-search")
@@ -17,12 +19,16 @@ console.log(emailTake);
 const imgTake = document.querySelector("#img-take");
 const yearTake = document.querySelector("#year-take")
 const bioTake = document.querySelector("#bio-take")
-const skillsTake = document.querySelector("#skills-take")
+const skillsTake = document.querySelector("#Skills-take");
+console.log(skillsTake);
+
 const passwordTake = document.querySelector("#password-take");
 const confirmPasswordTake = document.querySelector("#confirmPassword-take");
 const takeReg = document.querySelector("#take-reg")
 console.log(takeReg);
-const sigRegSearch = document.querySelector("#sign-reg-search")
+const sigRegSearch = document.querySelector("#sign-reg-search");
+const createAt = new Date().toLocaleDateString('tr-TR').replace(/\//g, ',');
+
 // sigRegSearch.addEventListener("click", ()=>{
 //   window.location = "login.html"
 // })
@@ -85,13 +91,58 @@ btnRegSearch.addEventListener("click", () => {
               });
             } else {
               let username = usernameSearch.value;
-              let password = passwordSearch.value
+              let password = passwordSearch.value;
+              let location = locationCompany.value;
+              let createAts =  createAt;
+              let website = urlCompany.value;
+              let  industry =   industrySearch.value
+
+
+
               console.log("company-alindi");
               localStorage.setItem("company-username", username);
               localStorage.setItem("company-password", password);
-              // localStorage.setItem("company-email",email);
-
+              localStorage.setItem("userRole", "company");
+              const data = {
+               name: username,
+               location : location,
+               industry : industry,
+               createdAt : createAts,
+               website : website,
+               password : password,
+               employeesIds : [],
+               reviews : [],
+        
+              }
+              function resetForm() {
+                document.getElementById('form').reset();
             }
+              fetch('https://quilted-tangy-part.glitch.me/companies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(responseData => {
+        
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    resetForm()
+                })
+                .catch(error => {
+                    console.error('Xəta baş verdi:', error);
+                    alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
+                });
+        
+            };
+            
           } else {
             Swal.fire({
               title: "Şifrə uyğun deyil!",
@@ -177,10 +228,63 @@ takeReg.addEventListener("click", () => {
                 // console.log("okey");
                 // local
                 let usersUsername = usernameTake.value;
-                let usersPassword = passwordTake.value
+                let usersPassword = passwordTake.value;
+                let usersMail = emailTake.value;
+                let profileImages = imgTake.value;
+             let userPassword = passwordTake.value;
+             let experienceYears = yearTake.value;
+             let bio = bioTake.value;
+             let skill = skillsTake.value;
+
+
+                const createAt = new Date().toLocaleDateString('tr-TR').replace(/\//g, ',');
+
+
+            
                 console.log("users-alindi");
                 localStorage.setItem("users-username", usersUsername);
                 localStorage.setItem("users-password", usersPassword);
+                localStorage.setItem("usersEmail" , usersMail );
+                localStorage.setItem("usersRole" , "users" );
+                const data = {
+                  name: usersUsername,
+                  email : usersMail,
+                  createdAt : createAt,
+                  profileImage : profileImages,
+                  password : userPassword,
+                  experienceYear : experienceYears,
+                  bio : bio,
+                skills: skill.split(" "),
+           
+                 }
+                 function resetForm() {
+                   document.getElementById('form').reset();
+               }
+                 fetch('https://quilted-tangy-part.glitch.me/users', {
+                   method: 'POST',
+                   headers: {
+                       'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify(data)
+               })
+                   .then(response => response.json())
+                   .then(responseData => {
+           
+                    Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Your work has been saved",
+                      showConfirmButton: false,
+                      timer: 1500
+                  });
+                       resetForm()
+                   })
+                   .catch(error => {
+                       console.error('Xəta baş verdi:', error);
+                       alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
+                   });
+
+
 
               } else {
                 Swal.fire({

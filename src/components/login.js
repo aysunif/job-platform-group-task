@@ -4,10 +4,17 @@ const loginPassword = document.querySelector("#login-password")
 console.log(loginPassword);
 const loginSignIn = document.querySelector("#login-sign-in")
 console.log(loginSignIn);
+const allForm = document.querySelectorAll(".login-forms");
+for (let i = 0; i < allForm.length; i++) {
+  const form = allForm[i];
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+}
 
 loginSignIn.addEventListener("click", ()=>{
-    if (loginEmail.value.trim()==="") {
+    if (loginEmail.value.trim()==="" || loginPassword.value.trim()==="") {
         Swal.fire({
             title: "Input boshdur!",
             showClass: {
@@ -26,30 +33,15 @@ loginSignIn.addEventListener("click", ()=>{
             }
           });
     } else {
-        if (loginPassword.value.trim()==="") {
-            Swal.fire({
-                title: "Input boshdur!",
-                showClass: {
-                  popup: `
-                    animate__animated
-                    animate__fadeInUp
-                    animate__faster
-                  `
-                },
-                hideClass: {
-                  popup: `
-                    animate__animated
-                    animate__fadeOutDown
-                    animate__faster
-                  `
-                }
-              });
+            let storedUsername = localStorage.getItem("usersMail");
+            let storedPass = localStorage.getItem("usersPassword");
+
+            console.log(storedUsername);
+            console.log(storedPass);
             
-        } else {
-            let storedMail = localStorage.getItem("email");
-            let storedPass = localStorage.getItem("password");
-            if (loginEmail.value === storedMail && loginPassword.value === storedPass ) {
-                console.log("ish axtaran");
+            
+            if (loginEmail.value === storedUsername && loginPassword.value === storedPass ) {
+                console.log("daxil oldunuz");
                 
             //   window.location = "viewVacations.html" 
             //   burani yoxlaa  
@@ -77,4 +69,4 @@ loginSignIn.addEventListener("click", ()=>{
         }
         
     }
-})
+)

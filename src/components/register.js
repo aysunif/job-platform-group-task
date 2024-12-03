@@ -27,6 +27,16 @@ const confirmPasswordTake = document.querySelector("#confirmPassword-take");
 const takeReg = document.querySelector("#take-reg")
 console.log(takeReg);
 const sigRegSearch = document.querySelector("#sign-reg-search");
+console.log(sigRegSearch);
+const sigRegSearch1 = document.querySelector("#sign-reg-search-1")
+
+sigRegSearch1.addEventListener("click", ()=>{
+  window.location = "login.html"
+})
+sigRegSearch.addEventListener("click", ()=>{ 
+  window.location = "login.html"
+})
+
 const createAt = new Date().toLocaleDateString('tr-TR').replace(/\//g, ',');
 
 // sigRegSearch.addEventListener("click", ()=>{
@@ -357,13 +367,6 @@ takeReg.addEventListener("click", () => {
       
     }
     validateEmail(emailTake.value)
-
-
-
-
-
-
-
   }
 })
 

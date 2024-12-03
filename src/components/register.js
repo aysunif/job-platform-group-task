@@ -15,6 +15,10 @@ const passwordTake = document.querySelector("#password-take");
 const confirmPasswordTake = document.querySelector("#confirmPassword-take");
 const takeReg = document.querySelector("#take-reg")
 console.log(takeReg);
+const sigRegSearch = document.querySelector("#sign-reg-search")
+sigRegSearch.addEventListener("click", ()=>{
+  window.location = "login.html"
+})
 
 const allForms = document.querySelectorAll("form");
 for (let i = 0; i < allForms.length; i++) {
@@ -237,6 +241,8 @@ takeReg.addEventListener("click", () => {
   
   }
 })
+
+
 
 
 

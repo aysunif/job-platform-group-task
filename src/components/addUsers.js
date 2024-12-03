@@ -1,12 +1,13 @@
-const BASE_URL = "https://wooded-trusted-trawler.glitch.me";
+import BASE_URL from "../services/constants/constants.js";
+import endpoints from "../services/endpoints/endpoints";
 
 const userCardsContainer = document.getElementById("userCards");
 
 async function fetchUsers() {
     try {
-        const response = await axios.get(`${BASE_URL}/users`); 
-        // console.log(response.data)
-        const users = response.data;  
+        const response = await axios.get(`${BASE_URL}${endpoints.users}`);
+        console.log(response.data)
+        const users = response.data;
         renderUserCards(users);
     } catch (error) {
         console.error("Error fetching users:", error);
@@ -17,7 +18,7 @@ async function fetchUsers() {
 }
 
 function renderUserCards(users) {
-    userCardsContainer.innerHTML = ""; 
+    userCardsContainer.innerHTML = "";
     users.forEach(user => {
         const userCard = `
             <div class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">

@@ -1,10 +1,10 @@
 const BASE_URL = "https://wooded-trusted-trawler.glitch.me";
-const companiesContainer = document.querySelector(".grid"); 
+const companiesContainer = document.querySelector(".grid");
 
 async function fetchCompanies() {
   try {
     const response = await axios.get(`${BASE_URL}/companies`);
-    const companies = response.data; 
+    const companies = response.data;
     renderCompanies(companies);
   } catch (error) {
     console.error("Error fetching companies:", error);
@@ -12,7 +12,7 @@ async function fetchCompanies() {
 }
 
 function renderCompanies(companies) {
-  companiesContainer.innerHTML = ""; 
+  companiesContainer.innerHTML = "";
   companies.forEach((company) => {
     const cardHTML = `
       <div class="bg-white shadow-md rounded-lg overflow-hidden">
@@ -32,13 +32,15 @@ function renderCompanies(companies) {
           <p class="text-sm text-gray-600 mb-2">
             <strong>Created At:</strong> ${new Date(company.createdAt).toLocaleDateString()}
           </p>
-          <a
-            href="${company.website}"
-            target="_blank"
-            class="text-blue-500 hover:underline text-sm"
-          >
-            Visit Website
-          </a>
+          <div class="flex items-center space-x-4 justify-between">
+                        <a href="${company.website}" target="_blank" class="text-blue-500 hover:underline text-sm">
+                            Visit Website
+                        </a>
+                        <a href="./companieDetails.html?id=${company.id}" class="text-blue-500 hover:underline text-sm ">
+                            View Details
+                        </a>
+
+                    </div>
         </div>
       </div>
     `;

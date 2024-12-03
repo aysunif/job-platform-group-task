@@ -16,10 +16,10 @@
             <div class="flex border-b border-gray-300">
                 <button
                     class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tl-lg focus:outline-none active:bg-gray-200"
-                    onclick="openTab(event, 'tab1')">İş axtaran</button>
+                    onclick="openTab(event, 'tab1')">Companies</button>
                 <button
                     class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tr-lg focus:outline-none"
-                    onclick="openTab(event, 'tab2')">İşə götürən</button>
+                    onclick="openTab(event, 'tab2')">User</button>
             </div>
             <div id="tab1" class="tabcontent p-4">
                 <form>
@@ -28,25 +28,50 @@
                             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                                 <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                                     Create an account
-
-
                                 </p>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Your username
                                     </label>
-                                    <input placeholder="JohnDoe"
+                                    <input placeholder="Name"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                                         id="username-search" type="text">
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
-                                        Email
+                                      Location
                                     </label>
-                                    <input placeholder="email"
+                                    <input placeholder="location"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                                        id="email-search" type="email">
+                                        id="location-search" type="text">
                                 </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                                     Industry
+                                    </label>
+                                    <input
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        placeholder="Industry" id="industry-search" type="text">
+                                </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                                     website
+                                    </label>
+                                    <input
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        placeholder="url" id="url-search" type="url">
+                                </div>
+                                <!-- <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                                     CreateAt
+                                    </label>
+                                    <input
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        placeholder="time" id="password-search" type="time">
+                                </div> -->
+
+
+
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Password
@@ -77,7 +102,7 @@
                                         <button type="button" id="sign-reg-search"
                                             class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
                                             type="submit">
-                                            Sign in
+                                            <a href="../pages/login.html">  Sign in</a>
 
                                         </button>
                                     </div>
@@ -114,6 +139,39 @@
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
+                                    Profile img
+                                    </label>
+                                    <input placeholder="image"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        id="img-take" type="url">
+                                </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                                        Experience Year
+                                    </label>
+                                    <input placeholder="experienceYear"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        id="year-take" type="number">
+                                </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                                       Bio
+                                    </label>
+                                    <input placeholder="bio"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        id="bio-take" type="text">
+                                </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                                   Skills
+                                    </label>
+                                    <input placeholder="bio"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        id="Skills-take" type="text">
+                                </div>
+                                
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Password
                                     </label>
                                     <input
@@ -140,7 +198,8 @@
                                         <button type="button" id="sign-reg-search"
                                             class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
                                             type="submit">
-                                            Sign in
+                                            <a href="../pages/login.html">  Sign in</a>
+                                          
 
                                         </button>
 

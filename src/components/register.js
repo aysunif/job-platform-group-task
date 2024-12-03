@@ -1,5 +1,8 @@
 const usernameSearch = document.querySelector("#username-search")
 console.log(usernameSearch);
+const locationCompany = document.querySelector("#location-search")
+const industrySearch = document.querySelector("#industry-search")
+const urlCompany = document.querySelector("#url-search")
 const passwordSearch = document.querySelector("#password-search")
 console.log(passwordSearch);
 const confirmPasswordSearch = document.querySelector("#confirmPassword-search")
@@ -11,14 +14,18 @@ const usernameTake = document.querySelector("#username-take")
 console.log(usernameTake);
 const emailTake = document.querySelector("#email-take");
 console.log(emailTake);
+const imgTake = document.querySelector("#img-take");
+const yearTake = document.querySelector("#year-take")
+const bioTake = document.querySelector("#bio-take")
+const skillsTake = document.querySelector("#skills-take")
 const passwordTake = document.querySelector("#password-take");
 const confirmPasswordTake = document.querySelector("#confirmPassword-take");
 const takeReg = document.querySelector("#take-reg")
 console.log(takeReg);
 const sigRegSearch = document.querySelector("#sign-reg-search")
-sigRegSearch.addEventListener("click", ()=>{
-  window.location = "login.html"
-})
+// sigRegSearch.addEventListener("click", ()=>{
+//   window.location = "login.html"
+// })
 
 const allForms = document.querySelectorAll("form");
 for (let i = 0; i < allForms.length; i++) {
@@ -32,7 +39,7 @@ for (let i = 0; i < allForms.length; i++) {
 
 btnRegSearch.addEventListener("click", () => {
 
-    if (usernameSearch.value.trim() === "" || passwordSearch.value.trim() === "" || confirmPasswordSearch.value.trim() === "") {
+    if (usernameSearch.value.trim() === "" || passwordSearch.value.trim() === "" || confirmPasswordSearch.value.trim() === "" || locationCompany.value.trim()=== "" || industrySearch.value.trim()=== "" || urlCompany.value.trim()==="") {
         Swal.fire({
             title: "Input boshdur   ",
             showClass: {
@@ -51,9 +58,9 @@ btnRegSearch.addEventListener("click", () => {
             }
           });
     } else {
-        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        function validateEmail(email) {
-          if (emailRegex.test(email)) {
+      const urlRegex = /^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=%]*)?$/;
+      function validateUrl(url) {
+          if (urlRegex.test(url)) {
              let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         function validatePassword(password) {
             if (passwordRegex.test(password)) {
@@ -80,10 +87,11 @@ btnRegSearch.addEventListener("click", () => {
             let username = usernameSearch.value;
             let email = emailSearch.value;
             let password = passwordSearch.value
-            console.log("eynidir"); 
-            localStorage.setItem("ishaxtaran-username", username);
-            localStorage.setItem("ishaxtaran-email", email);
-            localStorage.setItem("ishaxtaran-password", password);
+            console.log("company-alindi"); 
+            localStorage.setItem("company-username", username);
+            localStorage.setItem("company-password", password);
+            // localStorage.setItem("company-email",email);
+
         }
             } else {
                 Swal.fire({
@@ -109,7 +117,7 @@ btnRegSearch.addEventListener("click", () => {
             validatePassword(passwordSearch.value)
           } else {
             Swal.fire({
-                title: "Mail formati duzgun deil",
+                title: "Url formati duzgun deil",
                 showClass: {
                   popup: `
                     animate__animated
@@ -127,7 +135,7 @@ btnRegSearch.addEventListener("click", () => {
               });
           }
         }
-        validateEmail(emailSearch.value)
+        validateUrl(urlCompany.value)
       
   
     
@@ -139,7 +147,7 @@ btnRegSearch.addEventListener("click", () => {
 
 takeReg.addEventListener("click", () => {
 
-  if (usernameTake.value.trim() === "" || passwordTake.value.trim() === "" || confirmPasswordTake.value.trim() === "") {
+  if (usernameTake.value.trim() === "" || passwordTake.value.trim() === "" || confirmPasswordTake.value.trim() === ""|| emailTake.value.trim()=== "" || imgTake.value.trim()===""|| yearTake.value.trim()==="" || bioTake.value.trim()==="" || skillsTake.value.trim()==="" ){
       Swal.fire({
           title: "Input boshdur   ",
           showClass: {
@@ -158,83 +166,39 @@ takeReg.addEventListener("click", () => {
           }
         });
   } else {
-      let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      function validateEmail(email) {
-        if (emailRegex.test(email)) {
-           let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      function validatePassword(password) {
-          if (passwordRegex.test(password)) {
-            
-      if (passwordTake.value !== confirmPasswordTake.value) {
-          Swal.fire({
-              title: "Password eyni deil!",
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
-              }
-            });
-      } else {
-          let username = usernameTake.value;
-          let email = emailTake.value;
-          let password = passwordTake.value
-          console.log("eynidir"); 
-          localStorage.setItem("ishgoturen-username", username);
-          localStorage.setItem("ishgoturen-email", email);
-          localStorage.setItem("ishgoturen-password", password);
-      }
-          } else {
-              Swal.fire({
-                  title: "Şifrə uyğun deyil!",
-                  showClass: {
-                    popup: `
-                      animate__animated
-                      animate__fadeInUp
-                      animate__faster
-                    `
-                  },
-                  hideClass: {
-                    popup: `
-                      animate__animated
-                      animate__fadeOutDown
-                      animate__faster
-                    `
-                  }
-                });
-              }
-              
-          }
-          validatePassword(passwordTake.value)
-        } else {
-          Swal.fire({
-              title: "Mail formati duzgun deil",
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
-              }
-            });
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    function validateEmail(email) {
+      if (emailRegex.test(email)) {
+        const imageUrlRegex = /^https?:\/\/.*\.(?:jpg|jpeg|png|gif|bmp|webp|svg)$/;
+        function validateImgUrl(img) {
+          
+          
         }
+        
+      } else {
+          Swal.fire({
+                title: "Email duz deil!",
+                showClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `
+                },
+                hideClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `
+                }
+              });
       }
-      validateEmail(emailTake.value)
+      
+    }
+
+
+    
     
 
   

@@ -48,7 +48,9 @@ loginSignIn.addEventListener("click", ()=>{
         } else {
             let storedMail = localStorage.getItem("email");
             let storedPass = localStorage.getItem("password");
-            if (loginEmail.value === storedMail || loginPassword.value === storedPass ) {
+            if (loginEmail.value === storedMail && loginPassword.value === storedPass ) {
+                console.log("ish axtaran");
+                
             //   window.location = "viewVacations.html" 
             //   burani yoxlaa  
             } else {

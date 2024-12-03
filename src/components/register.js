@@ -174,8 +174,13 @@ takeReg.addEventListener("click", () => {
             const passwordRegexs = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
             function validatePasswordUsers(password) {
               if (passwordRegexs.test(password)) {
-                console.log("okey");
+                // console.log("okey");
                 // local
+                let usersUsername = usernameTake.value;
+                let usersPassword = passwordTake.value
+                console.log("users-alindi");
+                localStorage.setItem("users-username", usersUsername);
+                localStorage.setItem("users-password", usersPassword);
 
               } else {
                 Swal.fire({

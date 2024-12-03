@@ -48,7 +48,7 @@ function renderUserCards(usersList) {
                 <p class="text-sm text-gray-500 mt-2">Experience: ${user.experienceYear} years</p>
             </div>
             <div class="px-4 py-2 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
-                <a href="${user.linkedinUrl}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full" target="_blank">
+                <a href="https://www.linkedin.com/ ${user.linkedinUrl}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full" target="_blank">
                     LinkedIn
                 </a>
                 <a href="./userDetails.html?id=${user.id}" class="text-blue-500 text-sm">

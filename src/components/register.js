@@ -89,8 +89,8 @@ btnRegSearch.addEventListener("click", () => {
               console.log("company-alindi");
               localStorage.setItem("company-username", username);
               localStorage.setItem("company-password", password);
-              // localStorage.setItem("company-email",email);
-
+              localStorage.setItem("userRole", "company");
+              
             }
           } else {
             Swal.fire({
@@ -177,10 +177,15 @@ takeReg.addEventListener("click", () => {
                 // console.log("okey");
                 // local
                 let usersUsername = usernameTake.value;
-                let usersPassword = passwordTake.value
+                let usersPassword = passwordTake.value;
+                let usersMail = emailTake.value
                 console.log("users-alindi");
                 localStorage.setItem("users-username", usersUsername);
                 localStorage.setItem("users-password", usersPassword);
+                localStorage.setItem("usersEmail" , usersMail );
+                localStorage.setItem("usersRole" , "users" );
+
+
 
               } else {
                 Swal.fire({

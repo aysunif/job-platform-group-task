@@ -1,4 +1,4 @@
-const BASE_URL = "https://quilted-tangy-part.glitch.me";
+const BASE_URL = "https://wooded-trusted-trawler.glitch.me";
 const companiesContainer = document.querySelector(".grid"); 
 
 async function fetchCompanies() {
@@ -17,7 +17,7 @@ function renderCompanies(companies) {
     const cardHTML = `
       <div class="bg-white shadow-md rounded-lg overflow-hidden">
         <img
-          src="${company?.image}"
+          src="${company?.companyImage}"
           alt="Company Image"
           class="w-full h-48 object-cover"
         />

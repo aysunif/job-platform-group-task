@@ -1,5 +1,8 @@
 // const { create } = require("core-js/core/object");
 
+import BASE_URL from "../services/constants/constants";
+import endpoints from "../services/endpoints/endpoints";
+
 const usernameSearch = document.querySelector("#username-search")
 console.log(usernameSearch);
 const locationCompany = document.querySelector("#location-search")
@@ -117,7 +120,7 @@ btnRegSearch.addEventListener("click", () => {
               function resetForm() {
                 document.getElementById('form').reset();
             }
-              fetch('https://quilted-tangy-part.glitch.me/companies', {
+              fetch(`${BASE_URL}${endpoints.companies}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -260,7 +263,7 @@ takeReg.addEventListener("click", () => {
                  function resetForm() {
                    document.getElementById('form').reset();
                }
-                 fetch('https://quilted-tangy-part.glitch.me/users', {
+                 fetch(`${BASE_URL}${endpoints.users}`, {
                    method: 'POST',
                    headers: {
                        'Content-Type': 'application/json'

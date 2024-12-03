@@ -229,6 +229,38 @@
                 document.getElementById(tabName).classList.remove("hidden");
                 evt.currentTarget.classList.add("active:bg-gray-200");
             }
+            function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.add("hidden");
+    }
+    tablinks = document.getElementsByTagName("button");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.remove("hidden");
+    evt.currentTarget.classList.add("active");
+}
+
+function moveIndicator(evt) {
+    const tabs = document.querySelectorAll('.flex button');
+    const indicator = document.querySelector('.indicator');
+
+   
+    const tabIndex = Array.from(tabs).indexOf(evt.currentTarget);
+
+
+    const tabWidth = evt.currentTarget.offsetWidth; 
+    indicator.style.left = `${tabIndex * tabWidth}px`;
+
+    
+    tabs.forEach((tab) => tab.classList.remove('active'));
+    evt.currentTarget.classList.add('active');
+}
+
+
+
         </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

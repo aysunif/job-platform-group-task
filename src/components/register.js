@@ -379,6 +379,3 @@ takeReg.addEventListener("click", () => {
 
 
 
-
-
-

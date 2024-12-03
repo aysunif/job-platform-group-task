@@ -35,6 +35,11 @@ loginSignIn.addEventListener("click", ()=>{
     } else {
             let storedUsername = localStorage.getItem("usersMail");
             let storedPass = localStorage.getItem("usersPassword");
+
+            console.log(storedUsername);
+            console.log(storedPass);
+            
+            
             if (loginEmail.value === storedUsername && loginPassword.value === storedPass ) {
                 console.log("daxil oldunuz");
                 

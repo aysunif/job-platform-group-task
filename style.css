@@ -1,0 +1,35 @@
+@media (max-width: 480px) {
+    .gizledilmis {
+        display: none;
+    }
+
+    .main-mobile {
+        display: block !important;
+    }
+
+    .filter {
+        width: 100% !important;
+    }
+
+    .main-mobile-2 {
+        padding: 10px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .gizledilmis {
+        display: none;
+    }
+
+    .main-mobile {
+        display: block !important;
+    }
+
+    .filter {
+        width: 100% !important;
+    }
+
+    .main-mobile-2 {
+        padding: 10px !important;
+    }
+}

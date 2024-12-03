@@ -70,10 +70,24 @@ function search() {
     displayVacancies(filteredVacancies);
 }
 
+function filterType() {
+    const typeSelect = document.getElementById("typeSelect");
+    const selectedType = typeSelect.value;
+
+    if (selectedType === "seçilməyib") {
+        displayVacancies(allVacancies);
+    } else {
+        const filteredVacancies = allVacancies.filter(vacancy => vacancy.employmentType === selectedType);
+        displayVacancies(filteredVacancies);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
 
     document.querySelector('.searchInp').addEventListener('keyup', (event) => {
         search();
     });
+    const typeSelect = document.getElementById("typeSelect");
+    typeSelect.addEventListener("change", filterType);
 });

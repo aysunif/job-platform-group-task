@@ -85,7 +85,7 @@ btnRegSearch.addEventListener("click", () => {
               });
         } else {
             let username = usernameSearch.value;
-            let email = emailSearch.value;
+            // let email = emailSearch.value;
             let password = passwordSearch.value
             console.log("company-alindi"); 
             localStorage.setItem("company-username", username);

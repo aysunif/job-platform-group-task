@@ -31,7 +31,7 @@ const allForms = document.querySelectorAll("form");
 for (let i = 0; i < allForms.length; i++) {
   const form = allForms[i];
 
-  form.addEventListener("submit", (e) => {    
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
   });
 }
@@ -39,34 +39,34 @@ for (let i = 0; i < allForms.length; i++) {
 
 btnRegSearch.addEventListener("click", () => {
 
-    if (usernameSearch.value.trim() === "" || passwordSearch.value.trim() === "" || confirmPasswordSearch.value.trim() === "" || locationCompany.value.trim()=== "" || industrySearch.value.trim()=== "" || urlCompany.value.trim()==="") {
-        Swal.fire({
-            title: "Input boshdur   ",
-            showClass: {
-              popup: `
+  if (usernameSearch.value.trim() === "" || passwordSearch.value.trim() === "" || confirmPasswordSearch.value.trim() === "" || locationCompany.value.trim() === "" || industrySearch.value.trim() === "" || urlCompany.value.trim() === "") {
+    Swal.fire({
+      title: "Input boshdur   ",
+      showClass: {
+        popup: `
                 animate__animated
                 animate__fadeInUp
                 animate__faster
               `
-            },
-            hideClass: {
-              popup: `
+      },
+      hideClass: {
+        popup: `
                 animate__animated
                 animate__fadeOutDown
                 animate__faster
               `
-            }
-          });
-    } else {
-      const urlRegex = /^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=%]*)?$/;
-      function validateUrl(url) {
-          if (urlRegex.test(url)) {
-             let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      }
+    });
+  } else {
+    const urlRegex = /^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=%]*)?$/;
+    function validateUrl(url) {
+      if (urlRegex.test(url)) {
+        let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         function validatePassword(password) {
-            if (passwordRegex.test(password)) {
-              
-        if (passwordSearch.value !== confirmPasswordSearch.value) {
-            Swal.fire({
+          if (passwordRegex.test(password)) {
+
+            if (passwordSearch.value !== confirmPasswordSearch.value) {
+              Swal.fire({
                 title: "Password eyni deil!",
                 showClass: {
                   popup: `
@@ -83,126 +83,175 @@ btnRegSearch.addEventListener("click", () => {
                   `
                 }
               });
-        } else {
-            let username = usernameSearch.value;
-            let email = emailSearch.value;
-            let password = passwordSearch.value
-            console.log("company-alindi"); 
-            localStorage.setItem("company-username", username);
-            localStorage.setItem("company-password", password);
-            // localStorage.setItem("company-email",email);
-
-        }
             } else {
-                Swal.fire({
-                    title: "Şifrə uyğun deyil!",
-                    showClass: {
-                      popup: `
+              let username = usernameSearch.value;
+         
+              let password = passwordSearch.value
+              console.log("company-alindi");
+              localStorage.setItem("company-username", username);
+              localStorage.setItem("company-password", password);
+              // localStorage.setItem("company-email",email);
+
+            }
+          } else {
+            Swal.fire({
+              title: "Şifrə uyğun deyil!",
+              showClass: {
+                popup: `
                         animate__animated
                         animate__fadeInUp
                         animate__faster
                       `
-                    },
-                    hideClass: {
-                      popup: `
+              },
+              hideClass: {
+                popup: `
                         animate__animated
                         animate__fadeOutDown
                         animate__faster
                       `
-                    }
-                  });
-                }
-                
-            }
-            validatePassword(passwordSearch.value)
-          } else {
-            Swal.fire({
-                title: "Url formati duzgun deil",
-                showClass: {
-                  popup: `
+              }
+            });
+          }
+
+        }
+        validatePassword(passwordSearch.value)
+      } else {
+        Swal.fire({
+          title: "Url formati duzgun deil",
+          showClass: {
+            popup: `
                     animate__animated
                     animate__fadeInUp
                     animate__faster
                   `
-                },
-                hideClass: {
-                  popup: `
+          },
+          hideClass: {
+            popup: `
                     animate__animated
                     animate__fadeOutDown
                     animate__faster
                   `
-                }
-              });
           }
-        }
-        validateUrl(urlCompany.value)
-      
-  
-    
-    
+        });
+      }
     }
+    validateUrl(urlCompany.value)
+
+
+
+
+  }
 })
 
 
 
 takeReg.addEventListener("click", () => {
 
-  if (usernameTake.value.trim() === "" || passwordTake.value.trim() === "" || confirmPasswordTake.value.trim() === ""|| emailTake.value.trim()=== "" || imgTake.value.trim()===""|| yearTake.value.trim()==="" || bioTake.value.trim()==="" || skillsTake.value.trim()==="" ){
-      Swal.fire({
-          title: "Input boshdur   ",
-          showClass: {
-            popup: `
+  if (usernameTake.value.trim() === "" || passwordTake.value.trim() === "" || confirmPasswordTake.value.trim() === "" || emailTake.value.trim() === "" || imgTake.value.trim() === "" || yearTake.value.trim() === "" || bioTake.value.trim() === "" ) {
+    Swal.fire({
+      title: "Input boshdur   ",
+      showClass: {
+        popup: `
               animate__animated
               animate__fadeInUp
               animate__faster
             `
-          },
-          hideClass: {
-            popup: `
+      },
+      hideClass: {
+        popup: `
               animate__animated
               animate__fadeOutDown
               animate__faster
             `
-          }
-        });
+      }
+    });
   } else {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     function validateEmail(email) {
       if (emailRegex.test(email)) {
         const imageUrlRegex = /^https?:\/\/.*\.(?:jpg|jpeg|png|gif|bmp|webp|svg)$/;
         function validateImgUrl(img) {
-          
-          
+          if (imageUrlRegex.test(img)) {
+            const passwordRegexs = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+            function validatePasswordUsers(password) {
+              if (passwordRegexs.test(password)) {
+                console.log("okey");
+
+              } else {
+                Swal.fire({
+                  title: "Password duzgun yazilmiyib",
+                  showClass: {
+                    popup: `
+                      animate__animated
+                      animate__fadeInUp
+                      animate__faster
+                    `
+                  },
+                  hideClass: {
+                    popup: `
+                      animate__animated
+                      animate__fadeOutDown
+                      animate__faster
+                    `
+                  }
+                });
+              }
+
+            }
+
+          } else {
+            Swal.fire({
+              title: "Img duzgun yazilmiyib",
+              showClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeInUp
+                  animate__faster
+                `
+              },
+              hideClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeOutDown
+                  animate__faster
+                `
+              }
+            });
+
+          }
+
         }
-        
+
       } else {
-          Swal.fire({
-                title: "Email duz deil!",
-                showClass: {
-                  popup: `
+        console.log("mail duz deil");
+        
+        Swal.fire({
+          title: "Email duz deil!",
+          showClass: {
+            popup: `
                     animate__animated
                     animate__fadeInUp
                     animate__faster
                   `
-                },
-                hideClass: {
-                  popup: `
+          },
+          hideClass: {
+            popup: `
                     animate__animated
                     animate__fadeOutDown
                     animate__faster
                   `
-                }
-              });
+          }
+        });
       }
-      
+
     }
 
 
-    
-    
 
-  
-  
+
+
+
+
   }
 })
 

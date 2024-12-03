@@ -52,7 +52,7 @@ loginSignIn.addEventListener("click", ()=>{
             
              const emaillog = loginEmail.value;
              const password = loginPassword.value;
-             let BASE_URL = "https://quilted-tangy-part.glitch.me/";
+             let BASE_URL = "https://wooded-trusted-trawler.glitch.me/";
              if (localStorage.getItem("usersRole") === "users") {
               url = `${BASE_URL}users`;
             } else {
@@ -67,7 +67,7 @@ loginSignIn.addEventListener("click", ()=>{
     if (existUserWithEmail) {
       if (existUserWithEmail.password === password) {
         console.log("success");
-        window.location = "viewVacations.html";
+        window.location = "http://localhost:5173/src/pages/viewVacations.html";
       } else {
         console.log("fail");
       }

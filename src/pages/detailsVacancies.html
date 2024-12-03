@@ -6,17 +6,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>NISRA Vakansiya</title>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>NISRA Details</title>
     <link rel="shortcut icon" href="../assets/media/file (1).png" type="image/x-icon">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="../assets/media/istockphoto-858209386-612x612.jpg" type="image/x-icon">
 
 </head>
 
 <body>
-    <header class="bg-gray-50 fixed w-full h-auto">
+    <header class="bg-gray-50">
         <nav>
             <section class="bg-white shadow-md h-auto">
-                <div class="container mx-auto px-6 py-1">
+                <div class="container mx-auto px-6 py-4">
                     <div class="flex items-center justify-between">
                         <div>
                             <a href="#_" class="text-xl font-bold text-gray-900">
@@ -77,7 +78,7 @@
                     </div>
 
                     <div class="hidden md:flex items-center space-x-4">
-                        <a href="./addJob.html"
+                        <a href="#_"
                             class="text-gray-600 font-medium bg-gray-200 shadow-md hover:bg-blue-800 text-black hover:text-zinc-50 font-bold py-2 px-4 rounded">+Vakansiya
                             yarat</a>
                     </div>
@@ -90,67 +91,36 @@
     </header>
 
     <main>
-        <div class="flex flex-col items-center bg-gray-50 min-h-screen py-36">
-            <h1 class="text-2xl font-bold text-gray-800 mb-8">Vakansiyalar | İş elanları</h1>
-
-            <div class="flex w-full max-w-7xl gap-8">
-
-                <div class="flex-1 bg-white shadow-md rounded-lg p-6">
-                    <div class="space-y-4">
-                        <div class="vacanciesContainer">
-
-                        </div>
-                    </div>
+        <div class="bg-gray-100 flex justify-start p-10">
+            <button id="go-backBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">GO
+                BACK</button>
+        </div>
+        <div class="min-h-fit py-5 bg-gray-100 flex items-center justify-center">
+            <div class="container mx-auto bg-white shadow-md rounded-lg p-6">
+                <div class="mb-6">
+                    <h1 id="vacancyTitle" class="text-3xl font-bold text-gray-800">Vacancy Title</h1>
+                    <p id="vacancyPostedAt" class="text-sm text-gray-500 mt-2">Posted on: YYYY-MM-DD</p>
                 </div>
 
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold text-gray-700">Description</h2>
+                    <p id="vacancyDescription" class="text-gray-600 mt-2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                        elementum tristique.
+                    </p>
+                </div>
 
-                <div class="w-1/3 bg-white shadow-md rounded-lg p-6 space-y-4">
-                    <h2 class="text-lg font-bold text-gray-800">Filterlər</h2>
+                <div id="vacancyDetails" class="space-y-4">
+                    <p><strong>Description:</strong> Detailed job description goes here.</p>
+                    <p><strong>Salary:</strong> Not specified</p>
+                    <p><strong>Employment Type:</strong> Full-time</p>
+                    <p><strong>Status:</strong> Active</p>
+                </div>
 
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Kateqoriyalar</label>
-                        <input type="text"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Kateqoriyalar" />
-                    </div>
-
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">İxtisaslar</label>
-                        <input type="text"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Vəzifələr" />
-                    </div>
-
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Məşğulluq növü</label>
-                        <select
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                            <option selected>seçilməyib</option>
-                        </select>
-                    </div>
-
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Minimum maaş</label>
-                        <input type="number"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="minimum" />
-                    </div>
-
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Maksimum maaş</label>
-                        <input type="number"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="maximum" />
-                    </div>
-
-
-                    <button class="w-full bg-blue-500 text-white py-2 rounded-md shadow hover:bg-blue-600">
-                        Göndər
+                <div id="vacancyStatus" class="mt-6">
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition duration-300">
+                        Active
                     </button>
                 </div>
             </div>
@@ -312,121 +282,128 @@
     </footer>
 
 
-      <!-- CHATBOX -->
-  <div class="fixed bottom-0 right-0 mb-4 mr-4">
-    <button id="open-chat"
-      class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24"
-        stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-      </svg>
-      Chat with Admin Bot
-    </button>
-  </div>
-  <div id="chat-container" class="hidden fixed bottom-16 right-4 w-96">
-    <div class="bg-white shadow-md rounded-lg max-w-lg w-full">
-      <div class="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
-        <p class="text-lg font-semibold">Admin Bot</p>
-        <button id="close-chat" class="text-gray-300 hover:text-gray-400 focus:outline-none focus:text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
+    <!-- CHATBOX -->
+    <div class="fixed bottom-0 right-0 mb-4 mr-4">
+        <button id="open-chat"
+            class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
+                </path>
+            </svg>
+            Chat with Admin Bot
         </button>
-      </div>
-      <div id="chatbox" class="p-4 h-80 overflow-y-auto">
-        <div class="mb-2 text-right">
-          <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">hello</p>
-        </div>
-        <div class="mb-2">
-          <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the chatbot.
-          </p>
-        </div>
-        <div class="mb-2 text-right">
-          <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">this example of chat</p>
-        </div>
-        <div class="mb-2">
-          <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the chatbot.
-          </p>
-        </div>
-        <div class="mb-2 text-right">
-          <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">design with tailwind</p>
-        </div>
-        <div class="mb-2">
-          <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the chatbot.
-          </p>
-        </div>
-      </div>
-      <div class="p-4 border-t flex">
-        <input id="user-input" type="text" placeholder="Type a message"
-          class="w-full px-3 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button id="send-button"
-          class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Send</button>
-      </div>
     </div>
-  </div>
-  <script>
-    const chatbox = document.getElementById("chatbox");
-    const chatContainer = document.getElementById("chat-container");
-    const userInput = document.getElementById("user-input");
-    const sendButton = document.getElementById("send-button");
-    const openChatButton = document.getElementById("open-chat");
-    const closeChatButton = document.getElementById("close-chat");
+    <div id="chat-container" class="hidden fixed bottom-16 right-4 w-96">
+        <div class="bg-white shadow-md rounded-lg max-w-lg w-full">
+            <div class="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
+                <p class="text-lg font-semibold">Admin Bot</p>
+                <button id="close-chat"
+                    class="text-gray-300 hover:text-gray-400 focus:outline-none focus:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div id="chatbox" class="p-4 h-80 overflow-y-auto">
+                <div class="mb-2 text-right">
+                    <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">hello</p>
+                </div>
+                <div class="mb-2">
+                    <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the
+                        chatbot.
+                    </p>
+                </div>
+                <div class="mb-2 text-right">
+                    <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">this example of chat</p>
+                </div>
+                <div class="mb-2">
+                    <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the
+                        chatbot.
+                    </p>
+                </div>
+                <div class="mb-2 text-right">
+                    <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">design with tailwind</p>
+                </div>
+                <div class="mb-2">
+                    <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the
+                        chatbot.
+                    </p>
+                </div>
+            </div>
+            <div class="p-4 border-t flex">
+                <input id="user-input" type="text" placeholder="Type a message"
+                    class="w-full px-3 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="send-button"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const chatbox = document.getElementById("chatbox");
+        const chatContainer = document.getElementById("chat-container");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-button");
+        const openChatButton = document.getElementById("open-chat");
+        const closeChatButton = document.getElementById("close-chat");
 
-    let isChatboxOpen = true; 
+        let isChatboxOpen = true;
 
-    function toggleChatbox() {
-      chatContainer.classList.toggle("hidden");
-      isChatboxOpen = !isChatboxOpen; 
-    }
+        function toggleChatbox() {
+            chatContainer.classList.toggle("hidden");
+            isChatboxOpen = !isChatboxOpen;
+        }
 
-    openChatButton.addEventListener("click", toggleChatbox);
+        openChatButton.addEventListener("click", toggleChatbox);
 
-    closeChatButton.addEventListener("click", toggleChatbox);
+        closeChatButton.addEventListener("click", toggleChatbox);
 
-    sendButton.addEventListener("click", function () {
-      const userMessage = userInput.value;
-      if (userMessage.trim() !== "") {
-        addUserMessage(userMessage);
-        respondToUser(userMessage);
-        userInput.value = "";
-      }
-    });
+        sendButton.addEventListener("click", function () {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== "") {
+                addUserMessage(userMessage);
+                respondToUser(userMessage);
+                userInput.value = "";
+            }
+        });
 
-    userInput.addEventListener("keyup", function (event) {
-      if (event.key === "Enter") {
-        const userMessage = userInput.value;
-        addUserMessage(userMessage);
-        respondToUser(userMessage);
-        userInput.value = "";
-      }
-    });
+        userInput.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                const userMessage = userInput.value;
+                addUserMessage(userMessage);
+                respondToUser(userMessage);
+                userInput.value = "";
+            }
+        });
 
-    function addUserMessage(message) {
-      const messageElement = document.createElement("div");
-      messageElement.classList.add("mb-2", "text-right");
-      messageElement.innerHTML = `<p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">${message}</p>`;
-      chatbox.appendChild(messageElement);
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
+        function addUserMessage(message) {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("mb-2", "text-right");
+            messageElement.innerHTML = `<p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">${message}</p>`;
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
 
-    function addBotMessage(message) {
-      const messageElement = document.createElement("div");
-      messageElement.classList.add("mb-2");
-      messageElement.innerHTML = `<p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">${message}</p>`;
-      chatbox.appendChild(messageElement);
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
+        function addBotMessage(message) {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("mb-2");
+            messageElement.innerHTML = `<p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">${message}</p>`;
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
 
-    function respondToUser(userMessage) {
-      setTimeout(() => {
-        addBotMessage("This is a response from the chatbot.");
-      }, 500);
-    }
+        function respondToUser(userMessage) {
+            setTimeout(() => {
+                addBotMessage("This is a response from the chatbot.");
+            }, 500);
+        }
 
-    toggleChatbox();
+        toggleChatbox();
 
-  </script>
-    <script type="module" src="../services/vacancyService.js"></script>
+    </script>
+    <script type="module" src="../services/detailsVacancies.js"></script>
 </body>
 
 </html>

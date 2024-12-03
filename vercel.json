@@ -1,0 +1,15 @@
+{
+    "rewrites": [
+      { "source": "/about", "destination": "/about.html" },
+      { "source": "/addJob", "destination": "/addJob.html" },
+      { "source": "/companies", "destination": "/companies.html" },
+      { "source": "/login", "destination": "/login.html" },
+      { "source": "/register", "destination": "/register.html" },
+      { "source": "/users", "destination": "/users.html" },
+      { "source": "/usersDetails", "destination": "/usersDetails.html" },
+      { "source": "/detailsVacancies", "destination": "/detailsVacancies.html" },
+      { "source": "/viewVacations", "destination": "/viewVacations.html" },
+      { "source": "/", "destination": "/index.html" }
+    ]
+  }
+  

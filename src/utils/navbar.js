@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function checkUserLoginStatus() {
-    const user = localStorage.getItem("users-username");
+    const user = localStorage.getItem("usersRole", "users");
+    console.log(user);
     const userRole = localStorage.getItem("usersRole");
     console.log(user);
     console.log(userRole);
@@ -20,24 +21,24 @@ function checkUserLoginStatus() {
 
     async function fetchCompanies() {
         try {
-            const response = await axios.get("https://wooded-trusted-trawler.glitch.me/companies");
-            const companies = response.data;
-            
-            if (userRole === "companie" && companies.length > 0) {
-                const company = companies[companies.length - 1];
+            const response = await axios.get("https://wooded-trusted-trawler.glitch.me/users");
+            const users = response.data;
+
+            if (userRole === "users" && users.length > 0) {
+                const company = users[users.length - 1];
                 console.log(company);
 
                 const companyImage = company.companyImage || "default-image.jpg";
                 logoImg.setAttribute("src", companyImage);
             }
         } catch (error) {
-            console.error("Error fetching companies:", error);
+            console.error(error);
         }
     }
 
     fetchCompanies();
 
-    if (userRole === "companie") {
+    if (userRole === "company") {
         logOut.classList.remove("hidden");
         logo.setAttribute("href", "#");
         vacancyPanel.style.display = "block";

@@ -82,6 +82,18 @@ function filterType() {
     }
 }
 
+function filterBySalary() {
+    const maxSalary = parseInt(document.getElementById("maxSalary").value);
+    const minSalary = parseInt(document.getElementById("minSalary").value);
+
+    const filteredVacancies = allVacancies.filter(vacancy => {
+        const salary = parseInt(vacancy.salary); 
+        return (isNaN(minSalary) || salary >= minSalary) && (isNaN(maxSalary) || salary <= maxSalary);
+    });
+
+    displayVacancies(filteredVacancies);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
 
@@ -90,4 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const typeSelect = document.getElementById("typeSelect");
     typeSelect.addEventListener("change", filterType);
+
+    document.getElementById("filterButton").addEventListener("click", filterBySalary);
+
 });

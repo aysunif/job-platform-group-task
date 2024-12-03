@@ -1,4 +1,4 @@
-    import BASE_URL from "./constants/constants.js";
+import BASE_URL from "./constants/constants.js";
 import endpoints from "./endpoints/endpoints.js";
 
 function getVacancyDetails() {
@@ -11,7 +11,7 @@ function getVacancyDetails() {
 
     const detailsContainer = document.querySelector(".container");
 
-    axios.get(`${BASE_URL}${endpoints.vacancies}/${vacancyId}`) 
+    axios.get(`${BASE_URL}${endpoints.vacancies}/${vacancyId}`)
         .then(response => {
             const vacancy = response.data;
 
@@ -48,6 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     getVacancyDetails();
 });
 
-document.querySelector("#go-backBtn").addEventListener("click", function(){
+document.querySelector("#go-backBtn").addEventListener("click", function () {
     history.back()
 })

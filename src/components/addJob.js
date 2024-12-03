@@ -1,3 +1,6 @@
+import BASE_URL from "../services/constants/constants";
+import endpoints from "../services/endpoints/endpoints";
+
 document.getElementById('jobForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -21,7 +24,7 @@ document.getElementById('jobForm').addEventListener('submit', function (event) {
         document.getElementById('jobForm').reset();
     }
 
-    fetch('https://quilted-tangy-part.glitch.me/vacancies', {
+    fetch(`${BASE_URL}${endpoints.vacancies}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -30,7 +33,6 @@ document.getElementById('jobForm').addEventListener('submit', function (event) {
     })
         .then(response => response.json())
         .then(responseData => {
-
             Swal.fire({
                 position: "top-end",
                 icon: "success",

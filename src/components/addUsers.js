@@ -1,23 +1,23 @@
-const apiUrl = "https://quilted-tangy-part.glitch.me/users";
+const BASE_URL = "https://wooded-trusted-trawler.glitch.me";
 
 const userCardsContainer = document.getElementById("userCards");
 
 async function fetchUsers() {
     try {
-        const response = await axios.get(apiUrl); 
-        console.log(response.data)
+        const response = await axios.get(`${BASE_URL}/users`); 
+        // console.log(response.data)
         const users = response.data;  
-
         renderUserCards(users);
     } catch (error) {
         console.error("Error fetching users:", error);
-        userCardsContainer.innerHTML = `
-            <p class="text-red-500 text-center">Unable to load user data. Please try again later.</p>
-        `;
+        // userCardsContainer.innerHTML = `
+        //     <p class="text-red-500 text-center">Unable to load user data. Please try again later.</p>
+        // `;
     }
 }
 
 function renderUserCards(users) {
+    userCardsContainer.innerHTML = ""; 
     users.forEach(user => {
         const userCard = `
             <div class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
@@ -41,8 +41,8 @@ function renderUserCards(users) {
     });
 }
 
-function viewProfile(userId) {
-    alert(`You clicked on Profile ID: ${userId}`);
-}
+// function viewProfile(userId) {
+//     alert(`You clicked on Profile ID: ${userId}`);
+// }
 
 fetchUsers();

@@ -14,7 +14,15 @@ for (let i = 0; i < allForm.length; i++) {
 }
 
 loginSignIn.addEventListener("click", ()=>{
+  console.log("click");
+  
+  console.log(loginEmail.value);
+  console.log(loginPassword.value);
+  
+  
     if (loginEmail.value.trim()==="" || loginPassword.value.trim()==="") {
+      console.log("salam");
+      
         Swal.fire({
             title: "Input boshdur!",
             showClass: {
@@ -33,38 +41,39 @@ loginSignIn.addEventListener("click", ()=>{
             }
           });
     } else {
-            let storedUsername = localStorage.getItem("usersMail");
-            let storedPass = localStorage.getItem("usersPassword");
+      
+            // let storedUsername = localStorage.getItem("usersMail");
+            // let storedPass = localStorage.getItem("usersPassword");
 
-            console.log(storedUsername);
-            console.log(storedPass);
+            // console.log(storedUsername);
+            // console.log(storedPass);
             
-            
-            if (loginEmail.value === storedUsername && loginPassword.value === storedPass ) {
-                console.log("daxil oldunuz");
-                
-            //   window.location = "viewVacations.html" 
-            //   burani yoxlaa  
+             const emaillog = loginEmail.value;
+             const password = loginPassword.value;
+             let BASE_URL = "https://quilted-tangy-part.glitch.me/";
+             if (localStorage.getItem("usersRole") === "users") {
+              url = `${BASE_URL}users`;
             } else {
-                Swal.fire({
-                    title: "Istifadeci ve ya shifre  yanlishdir",
-                    showClass: {
-                      popup: `
-                        animate__animated
-                        animate__fadeInUp
-                        animate__faster
-                      `
-                    },
-                    hideClass: {
-                      popup: `
-                        animate__animated
-                        animate__fadeOutDown
-                        animate__faster
-                      `
-                    }
-                  });
-                
+              url += `${BASE_URL}companies`;
             }
+            fetch(url)
+  .then((response) => {
+    return response.json();
+  })
+  .then((users) => {
+    const existUserWithEmail = users.find((user) => user.email === emaillog);
+    if (existUserWithEmail) {
+      if (existUserWithEmail.password === password) {
+        console.log("success");
+        window.location = "viewVacations.html";
+      } else {
+        console.log("fail");
+      }
+    } else {
+      console.log("Bu emailde user yoxdu");
+    }
+  })
+          
             
         }
         

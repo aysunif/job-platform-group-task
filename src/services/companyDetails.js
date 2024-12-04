@@ -1,4 +1,7 @@
-const BASE_URL = "https://wooded-trusted-trawler.glitch.me";
+
+// company-details.js
+import BASE_URL from "./constants/constants.js";
+
 const urlParams = new URLSearchParams(window.location.search);
 const companyId = urlParams.get("id");
 

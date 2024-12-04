@@ -1,5 +1,8 @@
 // const { create } = require("core-js/core/object");
 
+import BASE_URL from "../services/constants/constants";
+import endpoints from "../services/endpoints/endpoints";
+
 const usernameSearch = document.querySelector("#username-search")
 console.log(usernameSearch);
 const locationCompany = document.querySelector("#location-search")
@@ -93,56 +96,55 @@ btnRegSearch.addEventListener("click", () => {
               let username = usernameSearch.value;
               let password = passwordSearch.value;
               let location = locationCompany.value;
-              let createAts =  createAt;
+              let createAts = createAt;
               let website = urlCompany.value;
-              let  industry =   industrySearch.value
-
+              let industry = industrySearch.value;
 
 
               console.log("company-alindi");
               localStorage.setItem("company-username", username);
               localStorage.setItem("company-password", password);
-              localStorage.setItem("userRole", "company");
+              localStorage.setItem("usersRole", "company");
               const data = {
-               name: username,
-               location : location,
-               industry : industry,
-               createdAt : createAts,
-               website : website,
-               password : password,
-               employeesIds : [],
-               reviews : [],
-        
+                name: username,
+                location: location,
+                industry: industry,
+                createdAt: createAts,
+                website: website,
+                password: password,
+                employeesIds: [],
+                reviews: [],
+
               }
               function resetForm() {
                 document.getElementById('form').reset();
-            }
-              fetch('https://quilted-tangy-part.glitch.me/companies', {
+              }
+              fetch(`${BASE_URL}${endpoints.companies}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                  'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
-            })
+              })
                 .then(response => response.json())
                 .then(responseData => {
-        
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Your work has been saved",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    resetForm()
+
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  resetForm()
                 })
                 .catch(error => {
-                    console.error('Xəta baş verdi:', error);
-                    alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
+                  console.error('Xəta baş verdi:', error);
+                  alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
                 });
-        
+
             };
-            
+
           } else {
             Swal.fire({
               title: "Şifrə uyğun deyil!",
@@ -197,7 +199,7 @@ btnRegSearch.addEventListener("click", () => {
 
 takeReg.addEventListener("click", () => {
 
-  if (usernameTake.value.trim() === "" || passwordTake.value.trim() === "" || confirmPasswordTake.value.trim() === "" || emailTake.value.trim() === "" || imgTake.value.trim() === "" || yearTake.value.trim() === "" || bioTake.value.trim() === "" ) {
+  if (usernameTake.value.trim() === "" || passwordTake.value.trim() === "" || confirmPasswordTake.value.trim() === "" || emailTake.value.trim() === "" || imgTake.value.trim() === "" || yearTake.value.trim() === "" || bioTake.value.trim() === "") {
     Swal.fire({
       title: "Input boshdur   ",
       showClass: {
@@ -221,7 +223,7 @@ takeReg.addEventListener("click", () => {
       if (emailRegex.test(mail)) {
         const imageUrlRegex = /^https?:\/\/.*\.(?:jpg|jpeg|png|gif|bmp|webp|svg)$/;
         function validateImgUrl(img) {
-          if (imageUrlRegex.test(img)) {  
+          if (imageUrlRegex.test(img)) {
             const passwordRegexs = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
             function validatePasswordUsers(password) {
               if (passwordRegexs.test(password)) {
@@ -231,58 +233,58 @@ takeReg.addEventListener("click", () => {
                 let usersPassword = passwordTake.value;
                 let usersMail = emailTake.value;
                 let profileImages = imgTake.value;
-             let userPassword = passwordTake.value;
-             let experienceYears = yearTake.value;
-             let bio = bioTake.value;
-             let skill = skillsTake.value;
+                let userPassword = passwordTake.value;
+                let experienceYears = yearTake.value;
+                let bio = bioTake.value;
+                let skill = skillsTake.value;
 
 
                 const createAt = new Date().toLocaleDateString('tr-TR').replace(/\//g, ',');
 
 
-            
+
                 console.log("users-alindi");
                 localStorage.setItem("users-username", usersUsername);
                 localStorage.setItem("users-password", usersPassword);
-                localStorage.setItem("usersEmail" , usersMail );
-                localStorage.setItem("usersRole" , "users" );
+                localStorage.setItem("usersEmail", usersMail);
+                localStorage.setItem("usersRole", "users");
                 const data = {
                   name: usersUsername,
-                  email : usersMail,
-                  createdAt : createAt,
-                  profileImage : profileImages,
-                  password : userPassword,
-                  experienceYear : experienceYears,
-                  bio : bio,
-                skills: skill.split(" "),
-           
-                 }
-                 function resetForm() {
-                   document.getElementById('form').reset();
-               }
-                 fetch('https://quilted-tangy-part.glitch.me/users', {
-                   method: 'POST',
-                   headers: {
-                       'Content-Type': 'application/json'
-                   },
-                   body: JSON.stringify(data)
-               })
-                   .then(response => response.json())
-                   .then(responseData => {
-           
+                  email: usersMail,
+                  createdAt: createAt,
+                  profileImage: profileImages,
+                  password: userPassword,
+                  experienceYear: experienceYears,
+                  bio: bio,
+                  skills: skill.split(" "),
+
+                }
+                function resetForm() {
+                  document.getElementById('form').reset();
+                }
+                fetch(`${BASE_URL}${endpoints.users}`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(data)
+                })
+                  .then(response => response.json())
+                  .then(responseData => {
+
                     Swal.fire({
                       position: "top-end",
                       icon: "success",
                       title: "Your work has been saved",
                       showConfirmButton: false,
                       timer: 1500
+                    });
+                    resetForm()
+                  })
+                  .catch(error => {
+                    console.error('Xəta baş verdi:', error);
+                    alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
                   });
-                       resetForm()
-                   })
-                   .catch(error => {
-                       console.error('Xəta baş verdi:', error);
-                       alert('Xəta baş verdi. Zəhmət olmasa sonra yenidən cəhd edin.');
-                   });
 
 
 
@@ -335,7 +337,7 @@ takeReg.addEventListener("click", () => {
 
       } else {
         console.log("mail duz deil");
-        
+
         Swal.fire({
           title: "Email duz deil!",
           showClass: {
@@ -354,7 +356,7 @@ takeReg.addEventListener("click", () => {
           }
         });
       }
-      
+
     }
     validateEmail(emailTake.value)
 

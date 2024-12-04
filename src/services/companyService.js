@@ -1,4 +1,5 @@
-const BASE_URL = "https://wooded-trusted-trawler.glitch.me";
+import BASE_URL from "./constants/constants.js";
+import endpoints from "./constants/constants.js"
 const companiesContainer = document.querySelector(".grid");
 const searchInput = document.getElementById("searchInput");
 const filterLocation = document.getElementById("filterLocation");
@@ -9,6 +10,7 @@ async function fetchCompanies() {
   try {
     const response = await axios.get(`${BASE_URL}/companies`);
     return response.data;
+
   } catch (error) {
     console.error("Error fetching companies:", error);
     return [];

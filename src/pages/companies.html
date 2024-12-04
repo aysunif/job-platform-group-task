@@ -8,6 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="../style/companies.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -85,11 +87,77 @@
   </header>
 
 
+
+
+
+
+
+      <div class="p-6 space-y-6 bg-gray-50 rounded-xl shadow-lg" style="padding-top: 150px;">
+        <div class="flex items-center gap-4">
+          <label for="searchInput" class="text-sm font-semibold text-gray-700 w-1/4">Search:</label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for companies"
+            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+          />
+        </div>
+      
+        <div class="flex items-center gap-4">
+          <label for="filterLocation" class="text-sm font-semibold text-gray-700 w-1/4">Location:</label>
+          <select
+            id="filterLocation"
+            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+          >
+            <option value="">Select Location</option>
+            <option value="Baku, Azerbaijan">Baku</option>
+            <option value="Tbilisi, Georgia">Tbilisi</option>
+          </select>
+        </div>
+      
+        <div class="flex items-center gap-4">
+          <label for="filterIndustry" class="text-sm font-semibold text-gray-700 w-1/4">Industry:</label>
+          <select
+            id="filterIndustry"
+            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+          >
+            <option value="">Select Industry</option>
+            <option value="IT">IT</option>
+            <option value="Software Development">Software Development</option>
+            <option value="IT Services">IT Services</option>
+            <option value="Tech Consulting">Tech Consulting</option>
+          </select>
+        </div>
+      
+        <div class="flex items-center gap-4">
+          <label for="sortOptions" class="text-sm font-semibold text-gray-700 w-1/4">Sort By:</label>
+          <select
+            id="sortOptions"
+            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+          >
+            <option value="nameAsc">Name (A-Z)</option>
+            <option value="nameDesc">Name (Z-A)</option>
+            <option value="dateAsc">Date (Oldest First)</option>
+            <option value="dateDesc">Date (Newest First)</option>
+          </select>
+        </div>
+      </div>
+      
+      
+      
+      
+
+
+
   <div class="containerr">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
 
     </div>
   </div>
+  
+  
+  
+  
 
   <footer>
 

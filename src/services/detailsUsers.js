@@ -15,15 +15,18 @@ async function fetchUsersDetails() {
 }
 
 function renderUserDetails(user) {
-    console.log(user);
-    
+  console.log(user);
+
   document.getElementById("user-image").src = user.profileImage;
   document.getElementById("user-name").textContent = user.name;
   document.getElementById("user-email").innerHTML = `<strong>Email:</strong> ${user.email}`;
   document.getElementById("user-created").innerHTML = `<strong>Created At:</strong> ${new Date(user.createdAt).toLocaleDateString()}`;
   document.getElementById("user-bio").innerHTML = `<strong>Bio:</strong> ${user.bio}`;
   document.getElementById("user-skills").innerHTML = `<strong>Skills:</strong> ${user.skills}`;
-  document.getElementById("user-website").href = user.website;
+  document.getElementById("user-website").addEventListener("click" , function(){
+    history.back()
+  })
 }
 
 fetchUsersDetails();
+

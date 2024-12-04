@@ -1,0 +1,48 @@
+.flex {
+    /* position: relative; */
+    /* display: flex; */
+    justify-content: space-between;
+    /* border-bottom: 2px solid #d1d5db; */
+}
+
+.flex button {
+    flex: 1;
+    padding: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.flex button:hover {
+    color: #ffffff;
+    background-color: #3b82f6;
+}
+
+.flex button.active {
+    color: #ffffff;
+    background-color: #3b82f6;
+}
+
+#form {
+    display: flex;
+    width: 100%;
+}
+
+
+
+.indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 50%;
+    background: #3b82f6;
+    transition: left 0.3s ease-in-out;
+}
+.form-box{
+    display: flex;
+    width: 100% !important;
+}

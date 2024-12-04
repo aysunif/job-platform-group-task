@@ -21,7 +21,9 @@ function renderCompanyDetails(company) {
   document.getElementById("company-location").innerHTML = `<strong>Location:</strong> ${company.location}`;
   document.getElementById("company-industry").innerHTML = `<strong>Industry:</strong> ${company.industry}`;
   document.getElementById("company-created").innerHTML = `<strong>Created At:</strong> ${new Date(company.createdAt).toLocaleDateString()}`;
-  document.getElementById("company-website").href = company.website;
+  document.getElementById("company-website").addEventListener("click", function () {
+    history.back()
+  })
 
   const reviewsList = document.getElementById("reviews-list");
   company.reviews.forEach((review) => {
@@ -41,7 +43,3 @@ function renderCompanyDetails(company) {
 
 fetchCompanyDetails();
 
-
-function goBack() {
-  window.history.back();
-};

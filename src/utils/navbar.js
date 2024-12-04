@@ -13,6 +13,8 @@ function checkUserLoginStatus() {
     const logOut = document.getElementById("çıxış");
     const logo = document.getElementById("logo");
     const logoImg = document.getElementById("logo-img");
+    const logN = document.querySelector(".logo-n");
+
 
     logOut.addEventListener("click", function () {
         localStorage.removeItem("usersRole");
@@ -41,9 +43,11 @@ function checkUserLoginStatus() {
     if (userRole === "company") {
         logOut.classList.remove("hidden");
         logo.setAttribute("href", "#");
+        logN.setAttribute("href", "#")
         vacancyPanel.style.display = "block";
     } else if (user) {
         logo.setAttribute("href", "#");
+        logN.setAttribute("href", "#")
         logOut.classList.remove("hidden");
         vacancyPanel.style.display = "none";
     } else {

@@ -5,31 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="../style/register.css">
-    <title>Register</title>
-    <link rel="shortcut icon" href="./src/assets/media/file (1).png" type="image/x-icon">
+    <link rel="stylesheet" href="./src/style/register.css">
+    <title>Document</title>
 </head>
 
 <body>
-
-    <body style="margin: 0 auto;">
-        <div class="w-full max-w-md mx-auto">
-            <div class="flex border-b border-gray-300">
-                <button
-                    class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tl-lg focus:outline-none active:bg-gray-200"
-                    onclick="openTab(event, 'tab1')">Companies</button>
-                <button
-                    class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tr-lg focus:outline-none"
-                    onclick="openTab(event, 'tab2')">User</button>
-            </div>
-            <div id="tab1" class="tabcontent p-4">
-                <form id="form">
-                    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-                        <div class="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
-                            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                                <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                                    Create an account
-                                </p>
+    <div class="max-w-2xl mx-auto flex-c mt-10">
+        <div class="flex border-b border-gray-300">
+            <button
+                class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tl-lg focus:outline-none active:bg-gray-200"
+                onclick="openTab(event, 'tab1')">Companies</button>
+            <button
+                class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tr-lg focus:outline-none"
+                onclick="openTab(event, 'tab2')">User</button>
+        </div>
+        <div id="tab1" class="tabcontent p-4 w-full">
+            <form id="form" class="w-full">
+                <div class="form-box flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+                    <div class="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
+                        <div class="p-6 space-y-4 md:space-y-6 sm:p-8 flex-c">
+                            <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                                Create an account
+                            </p>
+                            <div class="flex g-2">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Your username
@@ -40,39 +38,32 @@
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
-                                      Location
+                                        Location
                                     </label>
                                     <input placeholder="location"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ml-2"
                                         id="location-search" type="text">
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
-                                     Industry
+                                        Industry
                                     </label>
                                     <input
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ml-4"
                                         placeholder="Industry" id="industry-search" type="text">
                                 </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">
-                                     website
-                                    </label>
-                                    <input
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                                        placeholder="url" id="url-search" type="url">
-                                </div>
-                                <!-- <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">
-                                     CreateAt
-                                    </label>
-                                    <input
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                                        placeholder="time" id="password-search" type="time">
-                                </div> -->
+                            </div>
 
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900">
+                                    website
+                                </label>
+                                <input
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                    placeholder="url" id="url-search" type="url">
+                            </div>
 
-
+                            <div class="flex g-3">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Password
@@ -89,39 +80,41 @@
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                                         placeholder="••••••••" id="confirmPassword-search" type="password">
                                 </div>
-
-
-                                <button type="button" id="btn-reg-search"
-                                    class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
-                                    type="submit">
-                                    Create an account
-                                </button>
-
-                                <h1>Already have an account? <div class="flex gap-4">
-
-
-                                        <button type="button" id="sign-reg-search-1"
-                                            class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
-                                            type="submit">
-                                            <a href="./src/pages/login.html">  Sign in</a>
-
-                                        </button>
-                                    </div>
                             </div>
-                        </div>
 
+
+                            <button type="button" id="btn-reg-search"
+                                class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
+                                type="submit">
+                                Create an account
+                            </button>
+
+                            <h1>Already have an account? <div class="flex gap-4">
+
+
+                                    <button type="button" id="sign-reg-search-1"
+                                        class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
+                                        type="submit">
+                                        <a href="./src/pages/login.html"> Sign in</a>
+
+                                    </button>
+                                </div>
+                        </div>
                     </div>
-                    </h1>
-                </form>
-            </div>
-            <div id="tab2" class="tabcontent p-4 hidden">
-                <form>
-                    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-                        <div class="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
-                            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                                <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                                    Create an account
-                                </p>
+
+                </div>
+                </h1>
+            </form>
+        </div>
+        <div id="tab2" class="tabcontent p-4 hidden">
+            <form>
+                <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+                    <div class="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
+                        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                            <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                                Create an account
+                            </p>
+                            <div class="flex">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Your username
@@ -138,14 +131,16 @@
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                                         id="email-take" type="email">
                                 </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">
-                                    Profile img
-                                    </label>
-                                    <input placeholder="image"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                                        id="img-take" type="url">
-                                </div>
+                            </div>
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900">
+                                    Profile img Link
+                                </label>
+                                <input placeholder="image url"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                    id="img-take" type="url">
+                            </div>
+                            <div class="flex">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Experience Year
@@ -156,21 +151,23 @@
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
-                                       Bio
+                                        Bio
                                     </label>
                                     <input placeholder="bio"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                                         id="bio-take" type="text">
                                 </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900">
-                                   Skills
-                                    </label>
-                                    <input placeholder="bio"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                                        id="Skills-take" type="text">
-                                </div>
-                                
+                            </div>
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900">
+                                    Skills
+                                </label>
+                                <input placeholder="bio"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                                    id="Skills-take" type="text">
+                            </div>
+
+                            <div class="flex">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900">
                                         Password
@@ -187,54 +184,57 @@
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                                         placeholder="••••••••" id="confirmPassword-take" type="password">
                                 </div>
-
-                                <button id="take-reg"
-                                    class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
-                                    type="submit">
-                                    Create an account
-                                </button>
-                                <h1>Already have an account? <div class="flex gap-4">
-
-
-                                        <button type="button" id="sign-reg-search"
-                                            class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
-                                            type="submit">
-                                            <a href="../pages/login.html">  Sign in</a>
-                                          
-
-                                        </button>
-
-                                    </div>
                             </div>
+
+                            <button id="take-reg"
+                                class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
+                                type="submit">
+                                Create an account
+                            </button>
+                            <h1>Already have an account? <div class="flex gap-4">
+
+
+                                    <button type="button" id="sign-reg-search"
+                                        class="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
+                                        type="submit">
+                                        <a href="./src/pages/login.html"> Sign in</a>
+
+
+                                    </button>
+
+                                </div>
                         </div>
-                </form>
-            </div>
+                    </div>
+            </form>
         </div>
+    </div>
 
-        </div>
+    </div>
 
 
 
 
-        <script>
-            function openTab(evt, tabName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].classList.add("hidden");
-                }
-                tablinks = document.getElementsByTagName("button");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].classList.remove("active:bg-gray-200");
-                }
-                document.getElementById(tabName).classList.remove("hidden");
-                evt.currentTarget.classList.add("active:bg-gray-200");
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.add("hidden");
             }
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script type="module" src="./src/components/register.js"></script>
-    </body>
+            tablinks = document.getElementsByTagName("button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active:bg-gray-200");
+            }
+            document.getElementById(tabName).classList.remove("hidden");
+            evt.currentTarget.classList.add("active:bg-gray-200");
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./src/components/register.js"></script>
 </body>
 
 </html>

@@ -132,11 +132,12 @@ btnRegSearch.addEventListener("click", () => {
                   Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "Succesfully",
                     showConfirmButton: false,
                     timer: 1500
                   });
                   resetForm()
+                  // window.location.href = ""
                 })
                 .catch(error => {
                   console.error('Xəta baş verdi:', error);
@@ -275,11 +276,12 @@ takeReg.addEventListener("click", () => {
                     Swal.fire({
                       position: "top-end",
                       icon: "success",
-                      title: "Your work has been saved",
+                      title: "Succesfully",
                       showConfirmButton: false,
                       timer: 1500
                     });
                     resetForm()
+                    // window.location.href = ""
                   })
                   .catch(error => {
                     console.error('Xəta baş verdi:', error);
@@ -368,7 +370,6 @@ takeReg.addEventListener("click", () => {
 
   }
 })
-
 
 
 

@@ -1,18 +1,19 @@
+<!-- company-details.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Companies</title>
+  <title>Company Details</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer type="module" src="../services/companyDetails.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="../style/companies.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
+
 
   <header class="bg-gray-50 fixed w-full h-auto">
     <nav>
@@ -88,76 +89,41 @@
 
 
 
+  <div class="bg-gray-100" style="padding-top: 130px;">
+    <div class="max-w-4xl mx-auto p-6">
+
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img id="company-image" class="w-full h-48 object-cover" alt="Company Image" />
+        <div class="p-6">
+          <h2 id="company-name" class="text-3xl font-bold text-gray-800 mb-4"></h2>
+          <p id="company-location" class="text-sm text-gray-600 mb-2"></p>
+          <p id="company-industry" class="text-sm text-gray-600 mb-2"></p>
+          <p id="company-created" class="text-sm text-gray-600 mb-2"></p>
+          <a id="company-website" href="" target="_blank" class="text-blue-500 hover:underline">Visit Website</a>
 
 
 
+          <div class="mt-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Reviews</h3>
+            <ul id="reviews-list" class="space-y-4"></ul>
+          </div>
 
-      <div class="p-6 space-y-6 bg-gray-50 rounded-xl shadow-lg" style="padding-top: 150px;">
-        <div class="flex items-center gap-4">
-          <label for="searchInput" class="text-sm font-semibold text-gray-700 w-1/4">Search:</label>
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search for companies"
-            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-          />
-        </div>
-      
-        <div class="flex items-center gap-4">
-          <label for="filterLocation" class="text-sm font-semibold text-gray-700 w-1/4">Location:</label>
-          <select
-            id="filterLocation"
-            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-          >
-            <option value="">Select Location</option>
-            <option value="Baku, Azerbaijan">Baku</option>
-            <option value="Tbilisi, Georgia">Tbilisi</option>
-          </select>
-        </div>
-      
-        <div class="flex items-center gap-4">
-          <label for="filterIndustry" class="text-sm font-semibold text-gray-700 w-1/4">Industry:</label>
-          <select
-            id="filterIndustry"
-            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-          >
-            <option value="">Select Industry</option>
-            <option value="IT">IT</option>
-            <option value="Software Development">Software Development</option>
-            <option value="IT Services">IT Services</option>
-            <option value="Tech Consulting">Tech Consulting</option>
-          </select>
-        </div>
-      
-        <div class="flex items-center gap-4">
-          <label for="sortOptions" class="text-sm font-semibold text-gray-700 w-1/4">Sort By:</label>
-          <select
-            id="sortOptions"
-            class="p-3 w-full sm:w-2/3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-          >
-            <option value="nameAsc">Name (A-Z)</option>
-            <option value="nameDesc">Name (Z-A)</option>
-            <option value="dateAsc">Date (Oldest First)</option>
-            <option value="dateDesc">Date (Newest First)</option>
-          </select>
+
         </div>
       </div>
-      
-      
-      
-      
 
+      <button 
+      onclick="goBack()" 
+      class="mb-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600" style="margin-top: 10px;"
+    >
+      Go Back
+    </button>
 
-
-  <div class="containerr">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
 
     </div>
   </div>
-  
-  
-  
-  
+
+
 
   <footer>
 
@@ -303,123 +269,7 @@
 
   </footer>
 
-
-  <!-- CHATBOX -->
-  <div class="fixed bottom-0 right-0 mb-4 mr-4">
-    <button id="open-chat"
-      class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24"
-        stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-      </svg>
-      Admin ilə Əlaqə
-    </button>
-  </div>
-  <div id="chat-container" class="hidden fixed bottom-16 right-4 w-96">
-    <div class="bg-white shadow-md rounded-lg max-w-lg w-full">
-      <div class="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
-        <p class="text-lg font-semibold">Admin(Nurlan)</p>
-        <button id="close-chat" class="text-gray-300 hover:text-gray-400 focus:outline-none focus:text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div id="chatbox" class="p-4 h-80 overflow-y-auto">
-        <div class="mb-2 text-right">
-          <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">Salam</p>
-        </div>
-        <div class="mb-2">
-          <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">Bu Avtomatik Mesajdır
-          </p>
-        </div>
-        <div class="mb-2 text-right">
-          <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">Sualım var</p>
-        </div>
-        <div class="mb-2">
-          <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">Bu Avtomatik Mesajdır.
-          </p>
-        </div>
-        <div class="mb-2 text-right">
-          <p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">Nurlan cavab ver</p>
-        </div>
-        <div class="mb-2">
-          <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">Bu Avtomatik Mesajdır.
-          </p>
-        </div>
-      </div>
-      <div class="p-4 border-t flex">
-        <input id="user-input" type="text" placeholder="Type a message"
-          class="w-full px-3 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button id="send-button"
-          class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Göndər</button>
-      </div>
-    </div>
-  </div>
-  <script>
-    const chatbox = document.getElementById("chatbox");
-    const chatContainer = document.getElementById("chat-container");
-    const userInput = document.getElementById("user-input");
-    const sendButton = document.getElementById("send-button");
-    const openChatButton = document.getElementById("open-chat");
-    const closeChatButton = document.getElementById("close-chat");
-
-    let isChatboxOpen = true;
-
-    function toggleChatbox() {
-      chatContainer.classList.toggle("hidden");
-      isChatboxOpen = !isChatboxOpen;
-    }
-
-    openChatButton.addEventListener("click", toggleChatbox);
-
-    closeChatButton.addEventListener("click", toggleChatbox);
-
-    sendButton.addEventListener("click", function () {
-      const userMessage = userInput.value;
-      if (userMessage.trim() !== "") {
-        addUserMessage(userMessage);
-        respondToUser(userMessage);
-        userInput.value = "";
-      }
-    });
-
-    userInput.addEventListener("keyup", function (event) {
-      if (event.key === "Enter") {
-        const userMessage = userInput.value;
-        addUserMessage(userMessage);
-        respondToUser(userMessage);
-        userInput.value = "";
-      }
-    });
-
-    function addUserMessage(message) {
-      const messageElement = document.createElement("div");
-      messageElement.classList.add("mb-2", "text-right");
-      messageElement.innerHTML = `<p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">${message}</p>`;
-      chatbox.appendChild(messageElement);
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
-
-    function addBotMessage(message) {
-      const messageElement = document.createElement("div");
-      messageElement.classList.add("mb-2");
-      messageElement.innerHTML = `<p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">${message}</p>`;
-      chatbox.appendChild(messageElement);
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
-
-    function respondToUser(userMessage) {
-      setTimeout(() => {
-        addBotMessage("Bu Avtomatik Mesajdır.");
-      }, 500);
-    }
-
-    toggleChatbox();
-
-  </script>
   <script src="../utils/navbar.js"></script>
-  <script type="module" src="../services/companyService.js"></script>
 </body>
 
 </html>
